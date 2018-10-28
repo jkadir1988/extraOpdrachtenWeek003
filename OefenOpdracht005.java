@@ -19,12 +19,14 @@ public class OefenOpdracht005 {
 		System.out.println("\naantal personen zijn binnen: 2");
 		zeventies.bezoekersBekijken();
 		Uitsmijter bouncer = new Uitsmijter();
-		bouncer.verwijderen(persoon1.naam); //persoon1 wordt verwijderd
+		zeventies.uitsmijter = bouncer;
+		zeventies.eruit(persoon1);
 		Persoon persoon3 = new Persoon();
-		persoon3.naam = "Klaas"; //persoon3 wordt toegevoegd
+		bouncer.verwijderen(persoon1.naam);
+		persoon3.naam = "Klaas";
 		ts.kaartjeVerkopen(zeventies, persoon3);
 		System.out.println("\naantal personen zijn binnen: 2 en frits is weg");
-		zeventies.bezoekersBekijken(); // persoon1 staat nog in de lijst
+		zeventies.bezoekersBekijken(); 
 		
 	}
 }
@@ -32,13 +34,16 @@ public class OefenOpdracht005 {
 class Feest {
 	String feestNaam;
 	Persoon DJ;
-	ArrayList<Persoon> bezoekers = new ArrayList();
+	ArrayList<Persoon> bezoekers = new ArrayList<Persoon>();
 	Uitsmijter uitsmijter;
 
 	void bezoekersBekijken() {
 		for(Persoon visit : bezoekers) {
 		System.out.println(visit.naam + ". Geniet van " + feestNaam);
 		}
+	}
+	void eruit(Persoon persoon) {
+		bezoekers.remove(0);
 	}
 }
 

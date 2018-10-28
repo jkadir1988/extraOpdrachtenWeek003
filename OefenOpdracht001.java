@@ -1,22 +1,21 @@
 package ExtraOpdracht003OOP;
 
-
-
 public class OefenOpdracht001 {
 	public static void main(String[] args) {
 		Mens mens1 = new Mens();
+		Dokter dokter = new Dokter();
 		System.out.println("====voor de doktor");
 		mens1.status();
 		mens1.naam = "Kees";
 		mens1.status();
-		mens1.ziek = false;
 		System.out.println("====na de doktor");
+		dokter.genezen(mens1);
 		mens1.status();
 		mens1.leeftijd = 64;
 		if (mens1.leeftijd >= 65) {
-			System.out.println("Risico patient, ziekenhuis bellen");
+			System.out.println("\nRisico patient, ziekenhuis bellen");
 		} else {
-			System.out.println("Paracetamol en rust is voldoende");
+			System.out.println("\nParacetamol en rust is voldoende");
 		}
 
 	}
@@ -31,10 +30,8 @@ class Mens {
 	
 	
 }
-class Doktor {
+class Dokter {
 	void genezen(Mens mens) {
-		mens.ziek = true;
+		mens.ziek = false;
 	}
 }
-
-// Tot zover gaat het wel goed maar misschien mis ik wat uitdaging?

@@ -9,10 +9,10 @@ public class OefenOpdracht002 {
 		Auto auto = new Auto();
 		Garage garage = new Garage();
 		System.out.println("Voor de garage");
-		auto.lijstMetAutoos();
-		auto.kapot = true;
+		garage.lijstMetAutoos();
+		System.out.println(garage.autoos + "\t is kapot:  \t" + auto.kapot);
 		System.out.println("\nNa de garage");
-		auto.lijstMetAutoos();
+		System.out.println(garage.autoos + "\t is kapot:  \t" + garage.repareren(auto));
 		garage.apkKeuring(auto);
 	}
 
@@ -20,33 +20,30 @@ public class OefenOpdracht002 {
 
 class Auto {
 	String merk;
-	boolean kapot = false;
+	boolean kapot = true;
 	
+}
+
+class Garage {
+	List<String> autoos = new ArrayList<>();
+
+	boolean repareren(Auto mobiel) {
+		return false;
+	}
+	void apkKeuring(Auto car) {
+		lijstMetAutoos();
+		if (car.merk.startsWith("A")){ // Ik probeer alle auto's met een A te onderscheiden in prijs. 
+			System.out.println(car + "€50,00 betalen voor APK");
+		} else {
+			System.out.println(car + "€20,00 betalen voor APK");
+		}
+	}
 	void lijstMetAutoos() {
-		ArrayList<String> autoos = new ArrayList<>();
 		autoos.add("Audi");
 		autoos.add("Alfa");
 		autoos.add("BMW");
 		autoos.add("Volvo");
 		autoos.add("Porsche");
 		autoos.add("Ford");
-		for (String cars : autoos) {
-			System.out.println(cars + "\t status \t" + kapot);
-		}
-	}
-	
-	
-}
-
-class Garage {
-	void repareren(Auto mobiel) {
-		mobiel.kapot = false;
-	}
-	void apkKeuring(Auto car) {
-		if (car.merk.startsWith("a") != true){ // Ik probeer alle auto's met een A te onderscheiden in prijs. 
-			System.out.println(car + "€50,00 betalen voor APK");
-		} else {
-			System.out.println(car + "€20,00 betalen voor APK");
-		}
 	}
 }
